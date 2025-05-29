@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Align all JUnit versions with BOM
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+
+    // Use only these for JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Playwright dependency
+    implementation 'com.microsoft.playwright:playwright:1.52.0'
+}
+
+test {
+    // Explicitly declare JUnit 5 platform
+    useJUnitPlatform()
+}
